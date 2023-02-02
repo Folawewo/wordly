@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 70px;
+    }
+
+    .input {
+        background-color: #FFF;
+        min-height: 30px;
+        min-width: 500px;
+        font-size: 14pt;
+
+    }
+
+    .button {
+        margin-top: 10px;
+        float: right;
+        background-color: green;
+        color: white;
+        height: 30px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <input type="text" class="input" placeholder="Enter a valid URL" id="urlInput" />
+        <button class="button" id="btn">Generate URL</button>
+    </div>
+
+    <div class="content">
+        <a href="" target="_blank" class="view"></a>
+    </div>
+</body>
+
+</html>
