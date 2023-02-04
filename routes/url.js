@@ -18,11 +18,20 @@ router.post("./shorten", async (req, res) => {
 
   if (!validUrl.isUri(longUrl)) {
     try {
-      const url = await Url.findOne({ longUrl });
+      let url = await Url.findOne({ longUrl });
       if (url) {
         res.json(url);
       } else {
         const shortUrl = `${baseUrl}/${urlCode}`;
+
+        url = new Url({
+          longUrl,
+          shortUrl,
+          urlCode,
+        });
+        await url.save();
+
+        res.json(url)
       }
     } catch (error) {
       return res.status(401).json("Server Error");
