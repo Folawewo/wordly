@@ -31,7 +31,7 @@ router.post("./shorten", async (req, res) => {
         });
         await url.save();
 
-        res.json(url)
+        res.json(url);
       }
     } catch (error) {
       return res.status(401).json("Server Error");
@@ -40,3 +40,5 @@ router.post("./shorten", async (req, res) => {
     return res.status(401).json("Invalid Long URL Input");
   }
 });
+
+module.exports - router;

@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <title>URL Shortener</title>
 </head>
 <style>
@@ -42,6 +45,27 @@
     <div class="content">
         <a href="" target="_blank" class="view"></a>
     </div>
+
+    <script type="text/javascript">
+        $('#btn').click(function () {
+            $.ajax({
+                url: '/api/url/shorten',
+                dataType: 'json',
+                type: 'post',
+                data: JSON.stringify({
+                    longUrl: $('#urlInput').val(),
+                    contentType: 'application/json',
+                    success: function (data, textStatus, jQxhr) {
+                        $('.view').html(data.shortUrl);
+                        $('.view').attr('href', data.shortUrl);
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                        console.log(errorThrown)
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
